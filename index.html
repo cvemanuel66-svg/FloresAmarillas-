@@ -1,0 +1,90 @@
+<!-- Hecho por: TU NOMBRE -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🌻 Flores Amarillas</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: linear-gradient(to top, #fff3b0, #ffe066);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .flor {
+      position: absolute;
+      font-size: calc(20px + 1vw);
+      animation: caer linear infinite;
+      opacity: 0.9;
+      user-select: none;
+    }
+
+    @keyframes caer {
+      0% {
+        transform: translateY(-10%) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .flor-central {
+      font-size: 100px;
+      z-index: 2;
+      animation: latido 2.5s infinite ease-in-out;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    @keyframes latido {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Flor grande central -->
+  <div class="flor-central">🌻</div>
+
+  <script>
+    const cantidadFlores = 50;
+
+    for (let i = 0; i < cantidadFlores; i++) {
+      const flor = document.createElement("div");
+      flor.className = "flor";
+      flor.textContent = "🌻";
+
+      const tamaño = Math.random() * 20 + 24;
+      const izquierda = Math.random() * 100;
+      const duracion = Math.random() * 8 + 4;
+      const retardo = Math.random() * 5;
+
+      flor.style.fontSize = `${tamaño}px`;
+      flor.style.left = `${izquierda}vw`;
+      flor.style.animationDuration = `${duracion}s`;
+      flor.style.animationDelay = `${retardo}s`;
+
+      document.body.appendChild(flor);
+    }
+  </script>
+
+</body>
+</html>
